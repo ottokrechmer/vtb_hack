@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: devops/Dockerfile
+    ports:
+      - '8000:8000'
+    environment:
+      - DEBUG=${DEBUG}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+    networks:
+      - backend
+    volumes:
+      - media:/opt/app/uploads
+    depends_on:
+      - database
+
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    networks:
+      - backend
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    networks:
+      - backend
+    ports:
+      - '80:80'
+    volumes:
+      - media:/tmp/backend-media
+    depends_on:
+      - server
+
+networks:
+  backend:
+
+volumes:
+  db_data:
+  media:

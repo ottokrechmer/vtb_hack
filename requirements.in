@@ -1,0 +1,9 @@
+--trusted-host pypi.org
+--trusted-host files.pythonhosted.org
+
+Django==3.2.8
+pip-tools==6.3.0
+djangorestframework==3.12.4
+django-cors-headers==3.7.0
+psycopg2-binary==2.8.6
+channels==3.0.4
