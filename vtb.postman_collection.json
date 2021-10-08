@@ -6,6 +6,126 @@
 	},
 	"item": [
 		{
+			"name": "schemas",
+			"item": [
+				{
+					"name": "schemas list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/schemas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"schemas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schema",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/schemas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"schemas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schema create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"z1onist\",\n    \"description\": \"sfgasdfasdfqegfef3\",\n    \"json_field\": {\"ff\": \"ddddd\"},\n    \"owner\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/schemas/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"schemas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schema update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"first\",\n    \"description\": \"description\",\n    \"json_field\": {\"ff\": \"ddddd\"},\n    \"owner\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/schemas/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"schemas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schema delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/schemas/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"schemas",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "datasets",
 			"request": {
 				"method": "GET",
