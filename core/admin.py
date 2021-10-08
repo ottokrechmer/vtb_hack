@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from core.models import Conversion, MetaData, DataSet
+
+admin.site.register(DataSet)
+admin.site.register(MetaData)
+admin.site.register(Conversion)

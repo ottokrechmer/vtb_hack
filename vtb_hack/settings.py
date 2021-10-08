@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # apps
     'api.apps.ApiConfig',
     'core.apps.CoreConfig',
+    'schema.apps.SchemaConfig',
     'websockets.apps.WebsocketsConfig',
 ]
 

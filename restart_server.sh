@@ -20,25 +20,3 @@ done
 comm="rsync -i ~/Documents/aws.cer -a --progress ${excludes} ${project_directory}/* ${remote_host}:${remote_path}"
 echo "$comm"
 eval $comm
-
-#ssh ${remote_host} <<'EOF'
-#  kill $(ps aux | grep '[r]unserver' | awk '{print $2}') && echo 'process killed' || echo 'process is not killed'
-#  cd 'python-dashboard' &&
-#  source venv/bin/activate &&
-#  export FIRST_BUILD=True &&
-#  python manage.py migrate &&
-#  export FIRST_BUILD=False &&
-#  nohup python -u manage.py runserver --noreload 127.0.0.1:8333 &> nohup.out &&
-#  exit
-#EOF
-
-#ssh ${remote_host} <<'EOF'
-#  cd 'python-dashboard' &&
-#  cat last_deploy.log >> .deploy_history &&
-#  source venv/bin/activate &&
-#  export FIRST_BUILD=True &&
-#  python manage.py migrate &&
-#  export FIRST_BUILD=False &&
-#  sudo systemctl restart dashboar.service
-#  exit
-#EOF
