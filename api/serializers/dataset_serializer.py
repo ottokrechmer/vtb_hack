@@ -1,14 +1,16 @@
 from rest_framework import serializers
 
 from api.serializers.meta_data_serializer import MetaDataSerializer
+from api.serializers.user_serializer import UserSerializer
 from core.models import DataSet
 
 
 class DataSetSerializer(serializers.ModelSerializer):
+    owner = UserSerializer()
 
     class Meta:
         model = DataSet
-        fields = ['name', 'description', 'is_toll', 'price', 'updated_at', 'owner']
+        fields = ['id', 'name', 'description', 'price', 'updated_at', 'owner']
 
 
 class DataSetDetailSerializer(serializers.ModelSerializer):
@@ -16,4 +18,4 @@ class DataSetDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DataSet
-        fields = ['name', 'description', 'is_toll', 'price', 'updated_at', 'owner', 'meta_data']
+        fields = ['id', 'name', 'description', 'price', 'updated_at', 'owner', 'meta_data']

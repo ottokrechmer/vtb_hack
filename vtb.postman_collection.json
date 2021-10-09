@@ -145,9 +145,15 @@
 					"name": "datasets",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{url}}/{{api_base}}/datasets/",
+							"raw": "{{url}}/{{api_base}}/datasets/?name=SampleKafkaDataset",
 							"host": [
 								"{{url}}"
 							],
@@ -155,6 +161,12 @@
 								"{{api_base}}",
 								"datasets",
 								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "SampleKafkaDataset"
+								}
 							]
 						}
 					},
@@ -414,6 +426,31 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/{{api_base}}/user/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_base}}",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
 		},
 		{
 			"name": "data_types",

@@ -15,10 +15,10 @@ class DataSet(models.Model):
     urn = models.CharField(max_length=200, db_index=True, null=True, blank=True, unique=True)
     name = models.CharField(max_length=300)
     description = models.TextField(null=True, blank=True)
-    is_toll = models.BooleanField(default=False)
     price = models.PositiveIntegerField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='datasets', null=True, blank=True)
+    purchasers = models.ManyToManyField(User, related_name='purchaser_datasets')
 
     def __str__(self):
         return self.name

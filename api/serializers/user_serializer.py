@@ -10,4 +10,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['email', 'first_name', 'last_name', 'wallet']
 
     def get_wallet(self, obj):
-        return obj.wallet.amount
+        if hasattr(obj, 'wallet'):
+            return obj.wallet.amount
+        return 0

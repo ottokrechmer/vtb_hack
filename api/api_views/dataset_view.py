@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -33,3 +34,17 @@ class DataSetViewSet(ModelViewSet):
         parser = DataHubDataGetter()
         parser.parse_data()
         return Response(status=200)
+
+    @action(methods=['post'], detail=True)
+    def purchase(self, request, pk):
+        dataset = get_object_or_404(DataSet, pk=pk)
+        if not dataset.price:
+            return Response(status=200)
+        wallet = request.user.wallet
+        if dataset.price > wallet.amount:
+            return Response('Not enough money!', status=200)
+        else:
+            wallet.amount -= dataset.price
+            wallet.save()
+            dataset.purchasers.add(request.user)
+            return Response('Done!', status=200)
