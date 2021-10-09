@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -51,3 +52,12 @@ class Conversion(models.Model):
     class Meta:
         verbose_name = 'Conversion'
         verbose_name_plural = 'Conversion'
+
+
+class Token(models.Model):
+    token = models.CharField(max_length=200, db_index=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='token')
+    expires_at = models.DateTimeField()
+
+    def __str__(self):
+        return self.token

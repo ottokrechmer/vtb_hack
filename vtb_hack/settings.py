@@ -110,8 +110,13 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 30
+    'PAGE_SIZE': 30,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'core.authentication.ExpiringTokenAuthentication',
+    ],
 }
+
+AUTH_UPDATE_TIME = 2  # in minutes
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -169,6 +174,20 @@ logging.basicConfig(
 
 DATAHUB_LOGIN = 'datahub'
 DATAHUB_PASSWORD = 'datahub'
+
+START_SCHEDULER = True
+
+AUTHLIB_OAUTH_CLIENTS = {
+    # 'google': {
+    #     'client_id': os.getenv('GOOGLE_CLIENT_ID'),
+    #     'client_secret': os.getenv('GOOGLE_CLIENT_SECRET'),
+    # }
+    'google': {
+        'client_id': '973498922490-9rmatp9n90dc2l7b9mu3d8ko83v46540.apps.googleusercontent.com',
+        'client_secret': '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',
+    }
+}
+CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
 
 try:
     from vtb_hack.dev_settings import *

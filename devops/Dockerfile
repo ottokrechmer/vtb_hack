@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y libpq-dev \
 COPY . .
 
 ENTRYPOINT sleep 10 && \
-#	export FIRST_BUILD=true && \
+	export FIRST_BUILD=true && \
 	python manage.py migrate && \
 	python deploy_script.py && \
 #	python pre_tests.py && \
-#	export FIRST_BUILD=false && \
+	export FIRST_BUILD=false && \
 	python manage.py runserver --noreload 0.0.0.0:8000

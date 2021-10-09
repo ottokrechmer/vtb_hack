@@ -11,20 +11,25 @@ class DataHubDataGetter:
 
     def __init__(self):
         self.dh_url = 'http://datahub.yc.pbd.ai:9002'
-        self.cookies = self._set_cookies()
-        self.raw_data = self._get_ds_and_md()
+        self.cookies = None
+        self.raw_data = None
 
     def _set_cookies(self):
         url = self.dh_url + '/logIn'
         body = {'username': DATAHUB_LOGIN, 'password': DATAHUB_PASSWORD}
+        print('cookies')
         return data_getter(url, body)
 
     def _get_ds_and_md(self):
         url = self.dh_url + '/api/graphql/'
         body = {'query': dt_query}
+        print('data')
         return json.loads(data_getter(url, body, self.cookies))
 
     def parse_data(self):
+        self.cookies = self._set_cookies()
+        self.raw_data = self._get_ds_and_md()
+
         data_sets = list(DataSet.objects.all())
         meta_data = list(MetaData.objects.all())
 
@@ -54,3 +59,4 @@ class DataHubDataGetter:
                                 data_set=ds_dict[ds.get('entity').get('urn')]
                             ))
             MetaData.objects.bulk_create(new_mds)
+            print('parsed!')

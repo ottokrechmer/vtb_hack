@@ -7,6 +7,8 @@
 --trusted-host pypi.org
 --trusted-host files.pythonhosted.org
 
+apscheduler==3.7.0
+    # via -r requirements.in
 asgiref==3.4.1
     # via
     #   channels
@@ -17,6 +19,8 @@ attrs==21.2.0
     #   automat
     #   service-identity
     #   twisted
+authlib==0.15.4
+    # via -r requirements.in
 autobahn==21.3.1
     # via daphne
 automat==20.2.0
@@ -35,6 +39,7 @@ constantly==15.1.0
     # via twisted
 cryptography==35.0.0
     # via
+    #   authlib
     #   autobahn
     #   pyopenssl
     #   service-identity
@@ -78,13 +83,17 @@ pycparser==2.20
 pyopenssl==21.0.0
     # via twisted
 pytz==2021.3
-    # via django
+    # via
+    #   apscheduler
+    #   django
+    #   tzlocal
 requests==2.25.1
     # via -r requirements.in
 service-identity==21.1.0
     # via twisted
 six==1.16.0
     # via
+    #   apscheduler
     #   automat
     #   pyopenssl
     #   service-identity
@@ -98,6 +107,8 @@ txaio==21.2.1
     # via autobahn
 typing-extensions==3.10.0.2
     # via twisted
+tzlocal==2.1
+    # via apscheduler
 urllib3==1.26.7
     # via requests
 wheel==0.37.0
