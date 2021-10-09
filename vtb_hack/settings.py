@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     # packages & libs
     'rest_framework',
     'corsheaders',
-    'channels',
+    'django_extensions',
 
     # apps
     'api.apps.ApiConfig',
@@ -167,6 +167,9 @@ logging.basicConfig(
         level=os_getenv('LOG_LEVEL', 'DEBUG'),
         datefmt='%Y-%m-%d %H:%M:%S'
     )
+
+DATAHUB_LOGIN = 'datahub'
+DATAHUB_PASSWORD = 'datahub'
 
 try:
     from vtb_hack.dev_settings import *

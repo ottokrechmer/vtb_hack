@@ -21,10 +21,14 @@ autobahn==21.3.1
     # via daphne
 automat==20.2.0
     # via twisted
+certifi==2021.10.8
+    # via requests
 cffi==1.14.6
     # via cryptography
 channels==3.0.4
     # via -r requirements.in
+chardet==4.0.0
+    # via requests
 click==8.0.1
     # via pip-tools
 constantly==15.1.0
@@ -46,15 +50,14 @@ django-cors-headers==3.7.0
     # via -r requirements.in
 djangorestframework==3.12.4
     # via -r requirements.in
-gunicorn==20.1.0
-    # via -r requirements.in
 hyperlink==21.0.0
     # via
     #   autobahn
     #   twisted
-idna==3.2
+idna==2.10
     # via
     #   hyperlink
+    #   requests
     #   twisted
 incremental==21.3.0
     # via twisted
@@ -76,6 +79,8 @@ pyopenssl==21.0.0
     # via twisted
 pytz==2021.3
     # via django
+requests==2.25.1
+    # via -r requirements.in
 service-identity==21.1.0
     # via twisted
 six==1.16.0
@@ -93,6 +98,8 @@ txaio==21.2.1
     # via autobahn
 typing-extensions==3.10.0.2
     # via twisted
+urllib3==1.26.7
+    # via requests
 wheel==0.37.0
     # via pip-tools
 zope.interface==5.4.0

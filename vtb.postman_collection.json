@@ -33,13 +33,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/{{api_base}}/schemas/",
+							"raw": "{{url}}/{{api_base}}/schemas/1/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"{{api_base}}",
 								"schemas",
+								"1",
 								""
 							]
 						}
@@ -127,42 +128,67 @@
 		},
 		{
 			"name": "datasets",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/{{api_base}}/datasets/",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"{{api_base}}",
-						"datasets",
-						""
-					]
+			"item": [
+				{
+					"name": "datasets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dataset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "import datasets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/update_datasets/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								"update_datasets",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "dataset",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{url}}/{{api_base}}/datasets/1/",
-					"host": [
-						"{{url}}"
-					],
-					"path": [
-						"{{api_base}}",
-						"datasets",
-						"1",
-						""
-					]
-				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "data_types",
@@ -178,6 +204,137 @@
 						"{{api_base}}",
 						"datatypes",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DO NOT USE (GET DATASETs)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-DataHub-Actor",
+						"value": "urn:li:corpuser:datahub",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "PLAY_SESSION",
+						"value": "669be67ce71855799441548a73a0d8a4293d0b89-actor=urn%3Ali%3Acorpuser%3Adatahub",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  search(input: { type: DATASET, query: \"*\", start: 0, count: 10 }) {\n    start\n    count\n    total\n    searchResults {\n      entity {\n         urn\n         type\n         ...on Dataset {\n            name\n            description\n         }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://datahub.yc.pbd.ai:9002/api/graphql",
+					"protocol": "http",
+					"host": [
+						"datahub",
+						"yc",
+						"pbd",
+						"ai"
+					],
+					"port": "9002",
+					"path": [
+						"api",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DO NOT USE (Schema)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-DataHub-Actor",
+						"value": "urn:li:corpuser:datahub",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "PLAY_SESSION",
+						"value": "669be67ce71855799441548a73a0d8a4293d0b89-actor=urn%3Ali%3Acorpuser%3Adatahub",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  search(input: { type: DATASET, query: \"*\", start: 0, count: 10 }) {\n    start\n    count\n    total\n    searchResults {\n      entity {\n         urn\n         type\n         ...on Dataset {\n            name\n            description\n            schema {\n                name\n                fields {\n                    fieldPath\n                    type\n                    description\n                }\n            }\n         }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://datahub.yc.pbd.ai:9002/api/graphql/",
+					"protocol": "http",
+					"host": [
+						"datahub",
+						"yc",
+						"pbd",
+						"ai"
+					],
+					"port": "9002",
+					"path": [
+						"api",
+						"graphql",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DO NOT USE (GQL Auth)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-DataHub-Actor",
+						"value": "urn:li:corpuser:datahub",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "PLAY_SESSION",
+						"value": "669be67ce71855799441548a73a0d8a4293d0b89-actor=urn%3Ali%3Acorpuser%3Adatahub",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"datahub\",\"password\":\"datahub\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://datahub.yc.pbd.ai:9002/logIn",
+					"protocol": "http",
+					"host": [
+						"datahub",
+						"yc",
+						"pbd",
+						"ai"
+					],
+					"port": "9002",
+					"path": [
+						"logIn"
 					]
 				}
 			},
