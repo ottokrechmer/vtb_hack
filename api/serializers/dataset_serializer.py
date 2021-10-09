@@ -6,7 +6,7 @@ from core.models import DataSet
 
 
 class DataSetSerializer(serializers.ModelSerializer):
-    owner = UserSerializer()
+    owner = UserSerializer(allow_null=True)
     is_mine = serializers.SerializerMethodField()
     is_purchased = serializers.SerializerMethodField(method_name='get_is_purchased')
 
@@ -23,6 +23,7 @@ class DataSetSerializer(serializers.ModelSerializer):
 
 class DataSetDetailSerializer(serializers.ModelSerializer):
     meta_data = MetaDataSerializer(many=True)
+    owner = UserSerializer(allow_null=True)
     is_mine = serializers.SerializerMethodField()
     is_purchased = serializers.SerializerMethodField(method_name='get_is_purchased')
 
