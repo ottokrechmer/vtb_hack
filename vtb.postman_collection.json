@@ -54,6 +54,26 @@
 					"response": []
 				},
 				{
+					"name": "schema download",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/schemas/3/download",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"schemas",
+								"3",
+								"download"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "schema create",
 					"request": {
 						"method": "POST",
@@ -153,7 +173,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/{{api_base}}/datasets/?name=SampleKafkaDataset",
+							"raw": "{{url}}/{{api_base}}/datasets/",
 							"host": [
 								"{{url}}"
 							],
@@ -161,12 +181,6 @@
 								"{{api_base}}",
 								"datasets",
 								""
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "SampleKafkaDataset"
-								}
 							]
 						}
 					},
@@ -186,6 +200,33 @@
 								"{{api_base}}",
 								"datasets",
 								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dataset purchase",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/8/purchase/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								"8",
+								"purchase",
 								""
 							]
 						}

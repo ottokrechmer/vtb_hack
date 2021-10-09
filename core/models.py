@@ -18,7 +18,8 @@ class DataSet(models.Model):
     price = models.PositiveIntegerField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='datasets', null=True, blank=True)
-    purchasers = models.ManyToManyField(User, related_name='purchaser_datasets')
+    purchasers = models.ManyToManyField(User, related_name='purchaser_datasets', blank=True)
+    is_private = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

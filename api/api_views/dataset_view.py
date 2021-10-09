@@ -1,3 +1,5 @@
+from django.contrib.auth.models import AnonymousUser
+from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
@@ -22,9 +24,11 @@ class DataSetViewSet(ModelViewSet):
         return DataSetSerializer
 
     def get_queryset(self):
-        if self.action == 'retrieve':
-            return DataSet.objects.prefetch_related('meta_data').all()
-        return DataSet.objects.all()
+        if not isinstance(self.request.user, AnonymousUser):
+            if self.action == 'retrieve':
+                return DataSet.objects.prefetch_related('meta_data', 'purchasers').filter(Q(is_private=False) | Q(owner=self.request.user))
+            return DataSet.objects.prefetch_related('purchasers').filter(Q(is_private=False) | Q(owner=self.request.user))
+        return DataSet.objects.prefetch_related('purchasers').filter(is_private=False)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

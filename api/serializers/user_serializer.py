@@ -7,7 +7,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'wallet']
+        fields = ['id', 'email', 'first_name', 'last_name', 'wallet']
 
     def get_wallet(self, obj):
         if hasattr(obj, 'wallet'):

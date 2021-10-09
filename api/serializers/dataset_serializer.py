@@ -7,15 +7,31 @@ from core.models import DataSet
 
 class DataSetSerializer(serializers.ModelSerializer):
     owner = UserSerializer()
+    is_mine = serializers.SerializerMethodField()
+    is_purchased = serializers.SerializerMethodField(method_name='get_is_purchased')
 
     class Meta:
         model = DataSet
-        fields = ['id', 'name', 'description', 'price', 'updated_at', 'owner']
+        fields = ['id', 'name', 'description', 'price', 'updated_at', 'is_private', 'owner', 'is_mine', 'is_purchased']
+
+    def get_is_mine(self, obj):
+        return obj.owner == self.context['request'].user
+
+    def get_is_purchased(self, obj):
+        return self.context['request'].user in obj.purchasers.all()
 
 
 class DataSetDetailSerializer(serializers.ModelSerializer):
     meta_data = MetaDataSerializer(many=True)
+    is_mine = serializers.SerializerMethodField()
+    is_purchased = serializers.SerializerMethodField(method_name='get_is_purchased')
 
     class Meta:
         model = DataSet
-        fields = ['id', 'name', 'description', 'price', 'updated_at', 'owner', 'meta_data']
+        fields = ['id', 'name', 'description', 'price', 'updated_at', 'owner', 'is_private', 'meta_data', 'is_mine', 'is_purchased']
+
+    def get_is_mine(self, obj):
+        return obj.owner == self.context['request'].user
+
+    def get_is_purchased(self, obj):
+        return self.context['request'].user in obj.purchasers.all()
