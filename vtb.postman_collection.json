@@ -12,7 +12,13 @@
 					"name": "schemas list",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/{{api_base}}/schemas/",
 							"host": [
@@ -51,10 +57,16 @@
 					"name": "schema create",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"z1onist\",\n    \"description\": \"sfgasdfasdfqegfef3\",\n    \"json_field\": {\"ff\": \"ddddd\"},\n    \"owner\": 1\n}",
+							"raw": "{\n    \"name\": \"z1onist\",\n    \"description\": \"sfgasdfasdfqegfef3\",\n    \"json_field\": {\"ff\": \"ddddd\"}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,6 +181,110 @@
 					"response": []
 				},
 				{
+					"name": "dataset create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"DataSet1\",\n    \"description\": \"Description\",\n    \"is_toll\": true,\n    \"price\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dataset update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"DataSet1\",\n    \"description\": \"Description\",\n    \"is_toll\": true,\n    \"price\": 1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/2/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dataset delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/datasets/2/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"datasets",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "import datasets",
 					"request": {
 						"method": "POST",
@@ -182,6 +298,115 @@
 								"{{api_base}}",
 								"datasets",
 								"update_datasets",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "metadata",
+			"item": [
+				{
+					"name": "metadata create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"field_name\": \"Имя\",\n    \"description\": \"Имя человека\",\n    \"data_type\": \"str_type\",\n    \"data_set\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/metadata/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"metadata",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "metadata update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"field_name\": \"Жопа\",\n    \"description\": \"Жопа человека\",\n    \"data_type\": \"str_type\",\n    \"data_set\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/metadata/26/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"metadata",
+								"26",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "metadata delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/{{api_base}}/metadata/26/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"{{api_base}}",
+								"metadata",
+								"26",
 								""
 							]
 						}
@@ -230,7 +455,7 @@
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "{\n  search(input: { type: DATASET, query: \"*\", start: 0, count: 10 }) {\n    start\n    count\n    total\n    searchResults {\n      entity {\n         urn\n         type\n         ...on Dataset {\n            name\n            description\n         }\n      }\n    }\n  }\n}",
+						"query": "{\n  __type(name: \"Query\") {\n    name\n  }\n}",
 						"variables": ""
 					}
 				},

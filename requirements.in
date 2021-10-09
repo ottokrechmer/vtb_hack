@@ -10,3 +10,4 @@ channels==3.0.4
 requests==2.25.1
 APScheduler==3.7.0
 Authlib==0.15.4
+django-filter==2.4.0

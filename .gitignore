@@ -165,3 +165,5 @@ jupyter_scripts
 last_deploy.log
 
 .DS_Store
+
+/vtb_hack/dev_settings.py

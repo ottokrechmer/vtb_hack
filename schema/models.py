@@ -10,3 +10,11 @@ class Schema(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Wallet(models.Model):
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='wallet')
+    amount = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return str(self.amount)

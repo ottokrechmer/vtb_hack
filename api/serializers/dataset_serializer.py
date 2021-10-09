@@ -8,7 +8,7 @@ class DataSetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DataSet
-        fields = '__all__'
+        fields = ['name', 'description', 'is_toll', 'price', 'updated_at', 'owner']
 
 
 class DataSetDetailSerializer(serializers.ModelSerializer):
@@ -16,4 +16,4 @@ class DataSetDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DataSet
-        fields = ['name', 'description', 'is_toll', 'price', 'updated_at', 'meta_data']
+        fields = ['name', 'description', 'is_toll', 'price', 'updated_at', 'owner', 'meta_data']

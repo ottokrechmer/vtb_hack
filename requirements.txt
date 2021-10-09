@@ -50,8 +50,11 @@ django==3.2.8
     #   -r requirements.in
     #   channels
     #   django-cors-headers
+    #   django-filter
     #   djangorestframework
 django-cors-headers==3.7.0
+    # via -r requirements.in
+django-filter==2.4.0
     # via -r requirements.in
 djangorestframework==3.12.4
     # via -r requirements.in

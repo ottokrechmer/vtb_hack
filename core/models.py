@@ -18,6 +18,7 @@ class DataSet(models.Model):
     is_toll = models.BooleanField(default=False)
     price = models.PositiveIntegerField(null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='datasets', null=True, blank=True)
 
     def __str__(self):
         return self.name

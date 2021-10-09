@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     # packages & libs
     'rest_framework',
     'corsheaders',
+    'django_filters',
 
     # apps
     'api.apps.ApiConfig',

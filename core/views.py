@@ -10,6 +10,7 @@ from rest_framework.decorators import api_view
 
 from core.models import Token
 from core.services.meta_singleton import MetaSingleton
+from schema.models import Wallet
 from vtb_hack.settings import CONF_URL
 
 
@@ -60,6 +61,13 @@ def auth(request):
         defaults={
             'token': FrontendToken().custom_token,
             'expires_at': datetime.datetime.fromtimestamp(token['expires_at'])
+        }
+    )
+
+    Wallet.objects.get_or_create(
+        owner=local_user,
+        defaults={
+            'amount': 10000
         }
     )
 

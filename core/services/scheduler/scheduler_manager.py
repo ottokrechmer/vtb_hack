@@ -18,7 +18,7 @@ DEFAULT_JOB_PARAMS = {
 JOBS_TO_RUN = [
     {
         'func': get_data_and_parse,
-        'trigger': CronTrigger(minute='1'),
+        'trigger': CronTrigger(minute='5'),
     },
 ]
 
