@@ -43,7 +43,7 @@ class DataSetViewSet(ModelViewSet):
     def purchase(self, request, pk):
         dataset = get_object_or_404(DataSet, pk=pk)
         if not dataset.price:
-            return Response(status=200)
+            return Response('DataSet is free!', status=200)
         wallet = request.user.wallet
         if dataset.price > wallet.amount:
             return Response('Not enough money!', status=200)

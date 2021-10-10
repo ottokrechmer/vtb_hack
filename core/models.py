@@ -62,4 +62,4 @@ class Token(models.Model):
     expires_at = models.DateTimeField()
 
     def __str__(self):
-        return self.token
+        return self.user.email
