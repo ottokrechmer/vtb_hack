@@ -1,15 +1,7 @@
+
 #How to start
 
-- Put frontend build into `/devops/nginx/build` (`index.html` need to exist in `build/` root)
-- Put `.env` file into `/devops/`:
-```
-DEBUG=True
-START_SCHEDULER=True
-POSTGRES_HOST=database
-POSTGRES_PORT=5432
-POSTGRES_DB=hack
-POSTGRES_USER=hack
-POSTGRES_PASSWORD=hack
-```
-- Put new static (if needed) into `/devops/static`
-- Run `docker-compose up --build`
+В проекте _специально_ добавлены переменные окружения, статика и билд фронта в git, чтобы при необходимости было легко развернуть решение
+
+- cd devops/
+- sudo docker-compose up -d --build

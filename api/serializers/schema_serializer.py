@@ -7,7 +7,7 @@ class SchemaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Schema
-        fields = ['owner', 'name', 'description']
+        fields = ['id', 'owner', 'name', 'description']
 
 
 class SchemaDetailSerializer(serializers.ModelSerializer):

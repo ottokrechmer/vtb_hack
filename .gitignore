@@ -8,7 +8,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 downloads/
 eggs/
@@ -155,7 +154,6 @@ sec_risk.csv
 tech_standart.csv
 safe_data.csv
 test_urt.py
-*.env
 # generated yamls
 
 .vscode
