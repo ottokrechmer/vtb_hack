@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
 from django_filters import rest_framework as filters
+from rest_framework import exceptions
 
 
 class DataSetFilter(filters.FilterSet):
@@ -10,9 +11,9 @@ class DataSetFilter(filters.FilterSet):
     def is_mine_filter(self, queryset, name, value):
         if not isinstance(self.request.user, AnonymousUser):
             return queryset.filter(owner=self.request.user)
-        return queryset
+        raise exceptions.NotAuthenticated('Need to auth')
 
     def is_purchased_filter(self, queryset, name, value):
         if not isinstance(self.request.user, AnonymousUser):
             return queryset.filter(purchasers=self.request.user)
-        return queryset
+        raise exceptions.NotAuthenticated('Need to auth')

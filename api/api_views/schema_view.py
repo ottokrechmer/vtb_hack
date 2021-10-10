@@ -13,13 +13,15 @@ from schema.models import Schema
 
 
 class SchemaViewSet(ModelViewSet):
-    queryset = Schema.objects.all()
     permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get_serializer_class(self):
         if self.action == 'list':
             return SchemaSerializer
         return SchemaDetailSerializer
+
+    def get_queryset(self):
+        return Schema.objects.filter(owner=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
