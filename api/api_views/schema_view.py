@@ -1,11 +1,9 @@
 import json
-from io import StringIO
 
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from api.serializers.schema_serializer import SchemaSerializer, SchemaDetailSerializer

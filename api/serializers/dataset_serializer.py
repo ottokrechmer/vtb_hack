@@ -6,7 +6,7 @@ from core.models import DataSet
 
 
 class DataSetSerializer(serializers.ModelSerializer):
-    owner = UserSerializer(allow_null=True)
+    owner = UserSerializer(allow_null=True, read_only=True)
     is_mine = serializers.SerializerMethodField()
     is_purchased = serializers.SerializerMethodField(method_name='get_is_purchased')
 

@@ -1,10 +1,10 @@
 from django.contrib.auth.models import AnonymousUser
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+from django_filters import rest_framework as filters
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
-from django_filters import rest_framework as filters
 from rest_framework.viewsets import ModelViewSet
 
 from api.filters.dataset_filter import DataSetFilter

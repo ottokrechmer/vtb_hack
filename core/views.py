@@ -1,11 +1,11 @@
 import datetime
 import json
 
+from authlib.integrations.django_client import OAuth
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.urls import reverse
 from django.shortcuts import render, redirect
-from authlib.integrations.django_client import OAuth
+from django.urls import reverse
 from rest_framework.decorators import api_view
 
 from core.models import Token

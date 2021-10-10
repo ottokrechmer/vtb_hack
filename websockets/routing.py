@@ -1,4 +1,3 @@
-from django.conf.urls import url
 from django.urls import re_path
 
 from websockets.consumers import UserConsumer, EventConsumer
