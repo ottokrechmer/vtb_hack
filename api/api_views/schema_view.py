@@ -1,5 +1,6 @@
 import json
 
+from django.contrib.auth.models import AnonymousUser
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import action
@@ -19,7 +20,9 @@ class SchemaViewSet(ModelViewSet):
         return SchemaDetailSerializer
 
     def get_queryset(self):
-        return Schema.objects.filter(owner=self.request.user)
+        if not isinstance(self.request.user, AnonymousUser):
+            return Schema.objects.filter(owner=self.request.user)
+        return []
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)

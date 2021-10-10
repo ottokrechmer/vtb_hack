@@ -1,0 +1,20 @@
+.ant-table-cell {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #C4C4C4;
+}
+
+.ant-table-thead  tr > th {
+  padding: 10px;
+}
+
+.ant-table-tbody tr > td {
+  max-width: 200px;
+  padding: 10px;
+  height: 72px;
+  color: #FFFFFF;
+}
+
+

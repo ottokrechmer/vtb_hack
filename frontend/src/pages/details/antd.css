@@ -1,0 +1,48 @@
+.ant-table-cell {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #C4C4C4;
+}
+
+.ant-table-thead  tr > th {
+  padding-bottom: 10px;
+};
+
+.ant-table-tbody {
+  max-height: 200px !important;
+  overflow: scroll;
+}
+
+.ant-collapse-arrow {
+  color: #0062FF;
+  margin-right: 24px;
+  font-size: 12px;
+}
+
+.ant-collapse {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-collapse>.ant-collapse-item {
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ant-collapse>.ant-collapse-item>.ant-collapse-header  {
+  color: white;
+}
+
+.ant-collapse-content {
+  background-color: transparent;
+  border: none;
+  max-height: 250px !important;
+  overflow: scroll;
+}
+
+.ant-collapse-content-box {
+  padding-top: 0px !important;
+}

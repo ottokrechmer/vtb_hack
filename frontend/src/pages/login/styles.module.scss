@@ -1,0 +1,38 @@
+.authBtn {
+  display: flex;
+  width: 279px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 20px;
+  margin: auto;
+  background: #FFFFFF;
+  span {
+    text-align: center;
+    color: #C4C4C4;
+    box-shadow: 0 0 2.41919px rgba(246, 242, 242, 0.08), 0 2.41919px 2.41919px rgba(246, 246, 246, 0.07);
+    border-radius: 4.83838px;
+  }
+}
+
+.icon {
+  margin-right: 15px;
+}
+
+.auth {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    color: #111111;
+    padding-bottom: 10px;
+  }
+  background: #FFFFFF;
+}

@@ -1,0 +1,184 @@
+.container {
+  padding: 32px;
+  font-family: "SF UI Display";
+  height: calc(100vh - 154px);
+  overflow-y: auto;
+  background: #242424;
+  border: 1px solid #3797F5;
+
+  .title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.222vw;
+    line-height: 40px;
+    color: #FFFFFF;
+
+    > span {
+      font-size: 1.222vw;
+      margin-left: 8px;
+    }
+  }
+
+  .info {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1.222vw;
+    line-height: 40px;
+    color: #FFFFFF;
+
+    & > input {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .title {
+      font-size: 20px;
+    }
+
+    .info {
+      font-size: 14px;
+    }
+  }
+
+  .table {
+    width: 100%;
+    margin-top: 14px;
+    border-collapse: collapse;
+
+    th {
+      text-align: start;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      color: #C4C4C4;
+      border-bottom: 1px solid #F0F4F8;
+
+      > span {
+        margin-left: 8px;
+        display: block;
+        padding: 6px 0;
+      }
+    }
+
+    th:first-child {
+      width: 70%;
+    }
+
+    th:nth-child(2) {
+      width: 30%;
+    }
+
+    td {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #FFFFFF;
+      border-bottom: 1px solid #F0F4F8;
+
+      > span {
+        margin-left: 8px;
+        display: block;
+        padding: 24px 0;
+        cursor: pointer;
+      }
+
+      > div {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .targetControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .rightPartBlock {
+      display: flex;
+    }
+
+    .select {
+      min-width: 150px;
+      margin-left: 12px;
+    }
+
+    .img {
+      margin-left: 12px;
+    }
+  }
+}
+
+.marginTop {
+  margin-top: 8px;
+  width: 300px;
+}
+
+.popup {
+  position: relative;
+  min-width: 300px;
+  min-height: 100px;
+  max-width: 300px;
+
+  .closePopup {
+    position: absolute;
+    cursor: pointer;
+    top: -6px;
+    right: -11px;
+  }
+
+  .selectFilterOp {
+    width: 100%;
+  }
+
+  .operation {
+    margin-top: 8px;
+  }
+
+  .bool {
+
+
+    & > span:first-child {
+      display: block;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 154px);
+
+  .addTransfrom {
+    flex: 1 1 50%;
+    padding-bottom: 21px;
+  }
+
+  .addFilter {
+    flex: 1 1 50%;
+    padding-up: 21px;
+    transition: box-shadow 0.1s ease-out;
+  }
+
+  .contentOutline {
+    background: #242424;
+    border: 1px dashed #3797F5;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.917vw;
+    line-height: 40px;
+    color: #FFFFFF;
+
+    & > img {
+      margin-left: 1.667vw;
+    }
+  }
+}

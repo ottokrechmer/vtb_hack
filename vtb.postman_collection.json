@@ -15,7 +15,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"value": "Token dc7ea773-556f-4097-9ffa-b009b77aaa44",
 								"type": "text"
 							}
 						],
@@ -181,6 +181,18 @@
 								"{{api_base}}",
 								"datasets",
 								""
+							],
+							"query": [
+								{
+									"key": "is_purchased",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "is_mine",
+									"value": "true",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -190,7 +202,13 @@
 					"name": "dataset",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token vksdhfkadsjfkladsjflkjsalksdfASFDQSDF",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/{{api_base}}/datasets/1/",
 							"host": [
@@ -218,14 +236,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/{{api_base}}/datasets/8/purchase/",
+							"raw": "{{url}}/{{api_base}}/datasets/1/purchase/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"{{api_base}}",
 								"datasets",
-								"8",
+								"1",
 								"purchase",
 								""
 							]
@@ -246,7 +264,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"DataSet1\",\n    \"description\": \"Description\",\n    \"is_toll\": true,\n    \"price\": 100\n}",
+							"raw": "{\n    \"name\": \"DataSet1\",\n    \"description\": \"Description\",\n    \"is_toll\": true,\n    \"price\": 100,\n    \"is_private\": true\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -280,7 +298,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"DataSet1\",\n    \"description\": \"Description\",\n    \"is_toll\": true,\n    \"price\": 1000\n}",
+							"raw": "{\n            \"name\": \"DataSet2221\",\n            \"description\": \"222222\",\n            \"price\": 100,\n            \"updated_at\": \"2021-10-08T18:12:50.635822\",\n            \"is_private\": false,\n            \"is_mine\": false,\n            \"is_purchased\": false\n        }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -288,14 +306,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/{{api_base}}/datasets/2/",
+							"raw": "{{url}}/{{api_base}}/datasets/1/",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"{{api_base}}",
 								"datasets",
-								"2",
+								"1",
 								""
 							]
 						}
